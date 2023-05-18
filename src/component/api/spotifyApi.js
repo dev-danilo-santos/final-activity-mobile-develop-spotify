@@ -71,4 +71,17 @@ const buscarArtistasPorNome = async (nomeArtista) => {
   return data;
 };
 
-export { getGeneros, buscarArtistasPorGenero, buscarArtistasPorNome };
+const buscarArtistasPorId = async (idArtista) => {
+  const endpoint = `https://api.spotify.com/v1/artists/${idArtista}`
+  const accessToken = await getAccessToken();
+
+  const response = await fetch(endpoint, {
+    headers:{
+      Authorization: `Bearer ${accessToken}`,
+    },
+  });
+  const data = await response.json();
+  return data;
+}
+
+export { getGeneros, buscarArtistasPorGenero, buscarArtistasPorNome, buscarArtistasPorId };

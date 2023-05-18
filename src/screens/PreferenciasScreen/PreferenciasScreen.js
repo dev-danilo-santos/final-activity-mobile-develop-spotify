@@ -124,7 +124,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 20,
         paddingTop: 40,
         height: '100%',
-        minHeight: 3900
+        overflow: 'scroll'
     },
     topRow: {
         flexDirection: 'row',
