@@ -71,8 +71,8 @@ const buscarArtistasPorNome = async (nomeArtista) => {
   return data;
 };
 
-const buscarArtistasPorId = async (idArtista) => {
-  const endpoint = `https://api.spotify.com/v1/artists/${idArtista}`
+const buscarAlbunsArtista = async (idArtista) => {
+  const endpoint = `https://api.spotify.com/v1/artists/${idArtista}/albums`
   const accessToken = await getAccessToken();
 
   const response = await fetch(endpoint, {
@@ -84,4 +84,30 @@ const buscarArtistasPorId = async (idArtista) => {
   return data;
 }
 
-export { getGeneros, buscarArtistasPorGenero, buscarArtistasPorNome, buscarArtistasPorId };
+const buscarMusicasAlbum = async (idAlbum) => {
+  const endpoint = `https://api.spotify.com/v1/albums/${idAlbum}/tracks`
+  const accessToken = await getAccessToken();
+
+  const response = await fetch(endpoint, {
+    headers:{
+      Authorization: `Bearer ${accessToken}`,
+    }
+  });
+  const data = await response.json();
+  return data;
+}
+
+const buscarArtistasPorId = async (idArtista) => {
+  const endpoint = `https://api.spotify.com/v1/artists/${idArtista}`
+  const accessToken = await getAccessToken();
+
+  const response = await fetch(endpoint, {
+    headers:{
+      Authorization: `Bearer ${accessToken}`,
+    }
+  });
+  const data = await response.json();
+  return data;
+}
+
+export { getGeneros, buscarArtistasPorGenero, buscarArtistasPorNome, buscarAlbunsArtista, buscarMusicasAlbum, buscarArtistasPorId};

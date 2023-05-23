@@ -13,9 +13,6 @@ const AppTheme = {
     darkContainer: {
         backgroundColor: '#333',
     },
-    darkCard: {
-        backgroundColor: "#4c4d4c"
-    }
 }
 
 export default AppTheme;
