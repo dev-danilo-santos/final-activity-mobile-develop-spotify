@@ -70,7 +70,7 @@ const PerfilScreen = () => {
         ))}
       </ScrollView>
       <View style={styles.buttonContainer}>
-        <Button title="Limpar AsyncStorage" onPress={handleClearStorage} />
+        <Button title="Limpar Cache" onPress={handleClearStorage} />
       </View>
     </View>
   );
